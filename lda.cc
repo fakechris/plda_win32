@@ -30,8 +30,6 @@
 #include <string>
 #include <map>
 
-#include <time.h>
-
 #include "common.h"
 #include "document.h"
 #include "model.h"

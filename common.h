@@ -23,9 +23,10 @@
 #include <string>
 #include <vector>
 
+#ifdef WIN32
 #include <time.h>
 #include <algorithm>
-
+#endif
 
 // The CHECK_xxxx facilities, which generates a segmentation fault
 // when a check is failed.  If the program is run within a debugger,
