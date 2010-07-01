@@ -14,6 +14,10 @@
 
 #include "document.h"
 
+#if WIN32
+#define snprintf sprintf_s
+#endif 
+
 namespace learning_lda {
 
 LDADocument::WordOccurrenceIterator::WordOccurrenceIterator(

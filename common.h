@@ -23,6 +23,8 @@
 #include <string>
 #include <vector>
 
+#include <time.h>
+#include <algorithm>
 
 
 // The CHECK_xxxx facilities, which generates a segmentation fault
@@ -196,7 +198,8 @@ struct DocumentWordTopicsPB {
     wordtopics_start_index_.pop_back();
     wordtopics_start_index_.push_back(wordtopics_.size());
     for (size_t i = 0; i < topics.size(); ++i) {
-      wordtopics_.push_back(topics[i]);
+	  int v = topics[i];
+      wordtopics_.push_back(v);
     }
     wordtopics_start_index_.push_back(wordtopics_.size());
   }
@@ -214,7 +217,10 @@ inline double RandDouble() {
 inline int RandInt(int bound) {
   // NOTE: Do NOT use rand() % bound, which does not approximate a
   // discrete uniform distribution will.
-  return static_cast<int>(RandDouble() * bound);
+  int v = static_cast<int>(RandDouble() * bound);
+  if (v == bound)
+	  v = bound - 1;
+  return v;
 }
 
 // Returns a sample selected from a non-normalized probability distribution.
