@@ -198,8 +198,7 @@ struct DocumentWordTopicsPB {
     wordtopics_start_index_.pop_back();
     wordtopics_start_index_.push_back(wordtopics_.size());
     for (size_t i = 0; i < topics.size(); ++i) {
-	  int v = topics[i];
-      wordtopics_.push_back(v);
+      wordtopics_.push_back(topics[i]);
     }
     wordtopics_start_index_.push_back(wordtopics_.size());
   }
@@ -219,7 +218,7 @@ inline int RandInt(int bound) {
   // discrete uniform distribution will.
   int v = static_cast<int>(RandDouble() * bound);
   if (v == bound)
-	  v = bound - 1;
+    v = bound - 1;
   return v;
 }
 
